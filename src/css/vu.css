@@ -1,0 +1,121 @@
+/* Retro Neon Party styles for Vũ */
+:root{
+  --bg:#0F0F1A;
+  --primary:#00E5FF;
+  --secondary:#FF4D6D;
+  --accent:#FFD166;
+  --text:#E6F1FF;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.15), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(255,77,109,0.12), transparent 60%),
+              radial-gradient(800px 600px at 50% 100%, rgba(255,209,102,0.08), transparent 60%),
+              var(--bg);
+  color:var(--text);
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+/* Overlay */
+.overlay{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(3,6,12,0.9); z-index:1000;
+}
+.overlay-inner{ text-align:center; padding:32px; }
+.neon-title{
+  font-family:"Monoton", cursive; letter-spacing:2px;
+  color:var(--primary); font-size:44px; line-height:1.1; margin:0 0 10px;
+  text-shadow: 0 0 8px rgba(0,229,255,0.8), 0 0 20px rgba(0,229,255,0.6), 0 0 40px rgba(0,229,255,0.4);
+}
+.neon-title.big{ font-size:56px; }
+.overlay-sub{ opacity:0.9; margin-bottom:16px }
+
+.btn-neon{
+  appearance:none; border:none; cursor:pointer;
+  padding:12px 22px; border-radius:999px;
+  background: linear-gradient(90deg, rgba(0,229,255,0.15), rgba(255,77,109,0.15));
+  color:var(--text); font-weight:600; letter-spacing:0.3px;
+  box-shadow: 0 0 10px rgba(0,229,255,0.4), 0 0 16px rgba(255,77,109,0.25) inset;
+  outline:2px solid rgba(0,229,255,0.35);
+  transition: transform .2s ease, box-shadow .2s ease, outline-color .2s ease;
+}
+.btn-neon.small{ padding:10px 16px; font-size:14px }
+.btn-neon:hover{ transform:translateY(-2px); outline-color: var(--secondary);
+  box-shadow:0 0 16px rgba(0,229,255,0.7), 0 0 22px rgba(255,77,109,0.35) inset }
+
+.btn-ghost{
+  background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.25);
+  border-radius:999px; padding:8px 14px; cursor:pointer;
+}
+.btn-ghost:hover{ border-color: var(--primary); color:var(--primary) }
+
+/* Header */
+.site-header{ position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center;
+  padding:16px 20px; background:linear-gradient(to bottom, rgba(0,0,0,0.5), transparent); backdrop-filter: blur(4px);
+}
+.badge{ font-weight:700; letter-spacing:0.5px; color:var(--accent) }
+.controls{ display:flex; gap:10px }
+
+/* Hero */
+.hero{ padding:80px 20px 40px; text-align:center; position:relative; overflow:hidden }
+.subtitle{ max-width:760px; margin:10px auto 0; opacity:0.9 }
+
+.balloons{ position:relative; height:220px; margin-top:24px }
+.balloon{ position:absolute; width:120px; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5)); opacity:0.95 }
+.b1{ left:10%; animation:floatUp 9s linear infinite; animation-delay:0s }
+.b2{ left:45%; animation:floatUp 11s linear infinite; animation-delay:1.2s }
+.b3{ right:10%; animation:floatUp 10s linear infinite; animation-delay:0.6s }
+
+@keyframes floatUp{
+  0%{ transform: translateY(30px) scale(0.98); opacity:0 }
+  10%{ opacity:0.95 }
+  100%{ transform: translateY(-260px) scale(1.04); opacity:0 }
+}
+
+/* Wishes */
+.wishes{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:24px; padding:30px 20px 60px; max-width:1100px; margin:0 auto }
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 0 30px rgba(0,229,255,0.08);
+}
+.neon-sub{ color:var(--secondary); text-shadow: 0 0 8px rgba(255,77,109,0.6) }
+.card p{ line-height:1.8; margin:10px 0 }
+.card .highlight{ color: var(--accent); font-weight:700 }
+.wish-actions{ margin-top:14px }
+.side-illustration{ display:flex; align-items:center; justify-content:center }
+.side-illustration img{ max-width:100%; width:360px; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5)) }
+
+/* Modal */
+.modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:2000 }
+.modal[aria-hidden="false"]{ display:flex }
+.modal-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,0.6) }
+.modal-content{ position:relative; z-index:1; width:min(680px, 92vw); border-radius:16px; padding:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 10px 40px rgba(0,0,0,0.5), inset 0 0 40px rgba(0,229,255,0.08)
+}
+.modal-close{ position:absolute; top:10px; right:10px; background:transparent; color:var(--text); border:0; font-size:20px; cursor:pointer }
+.modal-text{ margin:8px 0 14px }
+.modal-media{ text-align:center }
+.modal-media img{ max-width:100%; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4)) }
+
+/* Footer */
+.site-footer{ border-top:1px solid rgba(255,255,255,0.12); padding:16px 20px; text-align:center; opacity:0.9 }
+
+/* Started state for subtle entrance animations */
+.started .hero .neon-title.big{ animation:pulseGlow 2.2s ease-in-out infinite }
+@keyframes pulseGlow{ 0%{ text-shadow:0 0 10px rgba(0,229,255,0.6), 0 0 22px rgba(0,229,255,0.35)}
+  50%{ text-shadow:0 0 18px rgba(0,229,255,0.95), 0 0 36px rgba(0,229,255,0.55)}
+  100%{ text-shadow:0 0 10px rgba(0,229,255,0.6), 0 0 22px rgba(0,229,255,0.35)} }
+
+/* Responsive */
+@media (max-width: 900px){
+  .wishes{ grid-template-columns: 1fr; }
+  .side-illustration{ order:-1; margin-bottom:8px }
+  .neon-title.big{ font-size:40px }
+}

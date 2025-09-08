@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Vũ 🎉</title>
+  <meta name="description" content="Trang chúc mừng sinh nhật Vũ - Retro Neon Party" />
+  <link rel="icon" href="images/others/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts for Neon & Body -->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/css/vu.css" />
+</head>
+<body>
+  <!-- Intro Overlay (to enable audio on user gesture) -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-inner">
+      <h1 class="neon-title">Happy Birthday, Vũ!</h1>
+      <p class="overlay-sub">Bấm để mở tiệc và bật nhạc 🎵</p>
+      <button id="startBtn" class="btn-neon">Mở tiệc</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="badge">Vũ's Birthday</div>
+    <div class="controls">
+      <button id="playToggle" class="btn-ghost" aria-label="Play/Pause music">⏯ Nhạc</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="neon-title big">Happy Birthday, Vũ!</h1>
+      <p class="subtitle">Hôm nay là ngày của cậu — hãy cười thật rực rỡ ✨</p>
+      <div class="balloons">
+        <img src="images/ballons/b1.png" alt="balloon" class="balloon b1" />
+        <img src="images/ballons/b2.png" alt="balloon" class="balloon b2" />
+        <img src="images/ballons/b1.png" alt="balloon" class="balloon b3" />
+      </div>
+    </section>
+
+    <!-- Wishes -->
+    <section class="wishes">
+      <div class="card">
+        <h2 class="neon-sub">Lời chúc gửi Vũ</h2>
+        <p>
+          Chúc Vũ tuổi mới thật nhiều sức khỏe, bình an và may mắn. Mong những dự định của cậu đều thành hiện thực:
+          làm điều cậu yêu, ở nơi cậu muốn và đi cùng những người cậu trân quý.
+        </p>
+        <p>
+          Cảm ơn vì luôn là một Vũ hết mình — ấm áp, chân thành và không ngại mơ lớn. Hãy cứ bật mode vui vẻ,
+          bứt phá và tận hưởng từng khoảnh khắc.
+        </p>
+        <p class="highlight">Happy Birthday, Vũ! 🎂🎉</p>
+        <div class="wish-actions">
+          <button id="openGift" class="btn-neon small">Mở quà 🎁</button>
+        </div>
+      </div>
+      <div class="side-illustration">
+        <img src="images/others/cake.png" alt="birthday cake" />
+      </div>
+    </section>
+
+    <!-- Surprise Modal -->
+    <div id="modal" class="modal" aria-hidden="true" role="dialog">
+      <div class="modal-backdrop" id="closeModal" tabindex="-1" aria-label="Đóng"></div>
+      <div class="modal-content" role="document">
+        <button class="modal-close" id="xClose" aria-label="Đóng">✕</button>
+        <h3 class="neon-sub">Một bất ngờ nhỏ</h3>
+        <p class="modal-text">Level up: +1 tuổi, +1000 niềm vui! Chúc Vũ luôn an yên và rực rỡ nhé ✨</p>
+        <div class="modal-media">
+          <img src="images/ballons/Balloon-Border.png" alt="Decorative balloons" />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>From: Bạn của Vũ with ❤️</p>
+    <button id="replay" class="btn-ghost">Lặp lại</button>
+  </footer>
+
+  <!-- Audio -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="audio/disco.mp3" type="audio/mpeg" />
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <!-- Scripts -->
+  <script src="src/scripts/vu.js"></script>
+</body>
+</html>
