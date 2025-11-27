@@ -1,4 +1,21 @@
 
+.skip {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip:focus {
+    left: 10px;
+    top: 10px;
+}
+
+/* Body Styling */
 body {
     font-family: 'Arial', 'Helvetica', sans-serif;
     font-size: 18px;
@@ -6,17 +23,14 @@ body {
     padding: 0;
 }
 
-/* ======================================
-   Bước 4: Style header tag 
-   Modify: background-color
-   ====================================== */
+/* Header Styling */
 header {
     background-color: #4CAF50;
     padding: 20px;
     text-align: center;
 }
 
-/* Style cho ảnh trong header */
+/* Style cho ảnh trong header - Bước 4 */
 header img {
     display: block;
     margin: 15px auto;
@@ -25,14 +39,18 @@ header img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ======================================
-   Bước 5: Style nav tag 
-   Modify: background-color
-   ====================================== */
+/* Nav image - Bước 4: Descendant selector cho ảnh trong nav */
+nav img {
+    width: 10%;
+}
+
+/* Bước 3: Nav styling - inline-block, width 80% */
 nav {
     background-color: #2E7D32;
     padding: 10px 0;
     margin-bottom: 15px;
+    display: inline-block;
+    width: 80%;
 }
 
 /* Style cho danh sách trong nav */
@@ -43,14 +61,17 @@ nav ul {
     text-align: center;
 }
 
-/* ======================================
-   Bước 8: Style li tag 
-   Modify: display và width
-   ====================================== */
-li {
+/* Bước 2: Comment out kiểu dáng cũ của li */
+/* li {
     display: inline-block;
     width: 250px;
     padding: 10px;
+} */
+
+/* New li styling for navigation */
+nav li {
+    display: inline-block;
+    padding: 10px 15px;
 }
 
 /* Style cho links trong nav */
@@ -67,10 +88,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* ======================================
-   Bước 9: Style h1 tag 
-   Modify: text-align, font-family, color
-   ====================================== */
+/* H1 Styling */
 h1 {
     text-align: center;
     font-family: 'Georgia', 'Times New Roman', serif;
@@ -80,10 +98,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* ======================================
-   Bước 6: Style main tag 
-   Modify: background-color và font-size
-   ====================================== */
+/* Main Content Styling */
 main {
     background-color: #F1F8E9;
     font-size: 20px;
@@ -93,10 +108,7 @@ main {
     margin: 0 auto;
 }
 
-/* ======================================
-   Bước 10: Style p tag 
-   Modify: line-height
-   ====================================== */
+/* Paragraph Styling */
 p {
     line-height: 2;
     margin-bottom: 20px;
@@ -116,9 +128,55 @@ main a:hover {
 }
 
 /* ======================================
-   Bước 7: Style footer tag 
-   Modify: background-color
+   Bước 5-7: GRID LAYOUT (Neighborhood page)
    ====================================== */
+.grid {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 20px;
+}
+
+/* Bước 6: Style cho ảnh trong grid - width 100% */
+.grid img {
+    width: 100%;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================
+   Bước 8: FLEXBOX LAYOUT (Parks page)
+   ====================================== */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.flex img {
+    width: 30%;
+    min-width: 200px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.flex img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styling */
 footer {
     background-color: #2E7D32;
     color: white;
@@ -145,46 +203,43 @@ footer a:hover {
 }
 
 /* ======================================
-   Style cho gallery images 
-   (trang neighborhood và parks)
-   ====================================== */
-main div {
-    text-align: center;
-    margin-top: 20px;
-}
-
-main div img {
-    margin: 10px;
-    border: 2px solid #4CAF50;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
-
-main div img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* ======================================
    Responsive Design cho Mobile
    ====================================== */
 @media (max-width: 768px) {
-    li {
+    nav {
+        width: 100%;
+        display: block;
+    }
+
+    nav li {
         display: block;
         width: 100%;
         margin: 5px 0;
     }
-    
+
+    .grid {
+        grid-template-columns: 100%;
+        row-gap: 15px;
+    }
+
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex img {
+        width: 90%;
+    }
+
     main {
         padding: 20px;
         font-size: 18px;
     }
-    
+
     h1 {
         font-size: 2em;
     }
-    
+
     body {
         font-size: 16px;
     }
